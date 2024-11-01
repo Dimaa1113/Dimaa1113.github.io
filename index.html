@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Smoking - Остановим курение вместе</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #000000, #1a1a1a);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://source.unsplash.com/random/1920x1080/?smoking,cigarette') center/cover;
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .calculator {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .calculator input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        /* Facts Section */
+        .facts-section {
+            padding: 100px 0;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .fact-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+        }
+
+        .fact-card h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Help Section */
+        .help-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .help-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .help-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Button Styles */
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255,0,255,0.5);
+        }
+
+        /* Animations */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a1a1a;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font -size: 1.2em;
+            }
+
+            .calculator-section {
+                padding: 40px 0;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-cards {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">Stop Smoking</h1>
+            <ul class="nav-links">
+                <li><a href="#">О проекте</a></li>
+                <li><a href="#">Калькулятор</a></li>
+                <li><a href="#">Факты</a></li>
+                <li><a href="#">Помощь</a></li>
+            </ul>
+            <i class="fas fa-bars mobile-menu-btn"></i>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Остановим курение вместе!</h1>
+                <p>Каждый день ты можешь изменить свою жизнь к лучшему</p>
+                <a href="#" class="cta-button">Начать</a>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <h2>Калькулятор экономии</h2>
+            <div class="calculator">
+                <input type="number" id="cigarettes" placeholder="Количество сигарет в день">
+                <input type="number" id="price" placeholder="Цена пачки сигарет">
+                <button class="cta-button">Рассчитать</button>
+                <p id="result"></p>
+            </div>
+        </section>
+
+        <section class="facts-section">
+            <h2>Интересные факты</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>Факт 1</h3>
+                    <p>Курение является одной из основных причин смерти в мире</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Факт 2</h3>
+                    <p>Каждый день более 15 000 человек умирают от курения</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Факт 3</h3>
+                    <p>Курение может привести к инвалидности и преждевременной смерти</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Помощь</h2>
+            <div class="help-cards">
+                <div class="help-card">
+                    <h3>Горячая линия</h3>
+                    <p>+7 (999) 123-45-67</p>
+                </div>
+                <div class="help-card">
+                    <h3>Электронная почта</h3>
+                    <p>stopsmoking@example.com</p>
+                </div>
+                <div class="help-card">
+                    <h3>Социальные сети</h3>
+                    <p>Присоединяйтесь к нам в социальных сетях</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Stop Smoking</p>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
