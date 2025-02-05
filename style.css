@@ -1,0 +1,467 @@
+/* style.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*  Или другой красивый шрифт */
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f0f4f8; /* Светлый фон */
+    color: #333; /* Основной цвет текста */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Or a slightly different color */
+    z-index: 1000; /* Ensure it's on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preloader-content{
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff; /* Use your main color */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Header and Navigation */
+header {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 100; /*  Make sure nav stays on top */
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+}
+
+.logo img {
+    height: 60px; /* Adjust as needed */
+}
+
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 50%; /* Adjust as needed */
+    list-style: none;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+.nav-links a:hover, .nav-links a:focus {
+  background-color: #007bff; /* Your primary color */
+  color: white;
+}
+
+
+/* Burger Menu (for mobile) */
+.burger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+
+/* Main Content Sections */
+.section-padding {
+    padding: 40px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: #0056b3; /* Darker shade of blue */
+    text-align: center;
+}
+p{
+  text-align: center;
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Adjust as needed */
+    text-align: center;
+    position: relative;  /* For positioning the 3D scene */
+    overflow: hidden; /* Hide any overflow from the 3D scene */
+    background: linear-gradient(135deg, #e0eefe, #c0e4fc);
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative; /* Ensure text is above the scene */
+}
+
+.hero-content h1 {
+    font-size: 3em; /* Large, impactful text */
+    margin-bottom: 0.5em;
+    color: #0056b3;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    max-width: 700px; /* Limit paragraph width */
+    margin: 0 auto 1.5em;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px; /* Rounded button */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+.cta-button:hover, .cta-button:focus{
+    background-color: #0056b3;
+    transform: translateY(-2px);  /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+
+.hero-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#lungs-canvas {
+  width: 100%;
+  height: 100%;
+  display: block; /* Important for proper sizing */
+}
+
+
+/* About Section */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    align-items: start; /* Align items to the top */
+}
+
+.about-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.about-item:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.about-item h3{
+  margin-top: 0.5rem;
+}
+
+.icon-container {
+    width: 60px; /* Adjust as needed */
+    height: 60px;
+    margin: 0 auto 1rem; /* Center the icon */
+
+}
+.icon-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the icon fits within the container */
+}
+
+
+
+/* Facts Section */
+
+.facts-carousel {
+    display: flex; /* Use flexbox for easy item management */
+    overflow: hidden; /* Hide overflowing items */
+    width: 100%;
+    scroll-snap-type: x mandatory; /* Enable snapping */
+
+}
+
+.fact-item {
+    flex: 0 0 80%; /* Each item takes 80% of carousel width */
+    /* flex-shrink: 0;  Important: Don't allow items to shrink */
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    scroll-snap-align: center; /* Snap to center of item */
+
+}
+
+.fact-item img{
+    width: 50px;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.fact-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff;
+}
+.fact-text{
+    margin-top: 0.5rem;
+}
+
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carousel-controls button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #007bff;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.carousel-controls button:hover, .carousel-controls button:focus {
+    color: #0056b3;
+}
+
+
+/* Alternatives Section */
+.alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.alternative {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alternative:hover{
+    transform: scale(1.05); /* Slight scale on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.alternative img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+
+
+/* Support Section */
+.support-resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.resource {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.resource h3{
+    text-align: left;
+}
+
+.resource p {
+  text-align: left;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    display: inline-block; /* For proper spacing */
+}
+.social-icons a img{
+  width: 30px;
+  height: 30px;
+}
+
+.back-to-top {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.back-to-top:hover{
+  background-color: #007bff;
+  color: white;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+
+/* Media Queries (for Responsiveness) */
+
+/* Smaller tablets */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 8vh; /* Adjust if your header height changes */
+        height: 92vh;
+        background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque on mobile */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%); /* Initially hidden */
+        transition: transform 0.5s ease-in;
+        overflow-y: auto; /* Allow scrolling if content overflows */
+        z-index: 99; /* Ensure it's above other content but below the burger */
+    }
+
+    .nav-links li {
+        opacity: 0; /* Initially hidden for animation */
+    }
+
+    .burger {
+        display: block;
+        z-index: 100;
+    }
+    .fact-item{
+        flex: 0 0 90%; /* Adjust as needed for mobile */
+    }
+
+     .hero-content h1 {
+       font-size: 2.5em; /* Adjust as needed for smaller screens */
+    }
+}
+
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .nav-links{
+        width: 70%; /* Wider menu on very small screens */
+    }
+    .hero-content h1 {
+        font-size: 2em; /*  Further reduce size if needed*/
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Slightly smaller button */
+        font-size: 0.9em;
+    }
+}
+
+
+
+/* Animations */
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
